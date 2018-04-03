@@ -121,3 +121,6 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   yomu
+
+BUNDLED WITH
+   1.15.4

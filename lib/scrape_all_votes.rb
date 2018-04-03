@@ -52,6 +52,12 @@ class GetAllVotes
          files.split(/\n/).each do |rtf|
            file_names << "#{file_name}_D/#{rtf}"
          end
+       elsif  file_ext == ".7z"
+         `7z x arch.7z -o #{file_name}_D/ `
+         files = `cd #{file_name}_D && ls`
+         files.split(/\n/).each do |rtf|
+           file_names << "#{file_name}_D/#{rtf}"
+         end
        else
          file_names << file_name
        end
