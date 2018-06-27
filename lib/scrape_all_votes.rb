@@ -29,6 +29,7 @@ class GetAllVotes
        p file_path
        file_names = []
        file_name = "#{File.dirname(__FILE__)}/../files/download/#{Base32.encode(file_path)}"
+       p file_name
        if (!File.exists?(file_name) || File.zero?(file_name))
           uri = URI.encode(file_path.gsub(/%20/,' '))
           p uri
@@ -65,6 +66,7 @@ class GetAllVotes
          if i > 0
            number = "#{number}-#{i + 1}"
          end
+         p "file is.. " + file_name
          ReadFile.new.rtf(file_name).each_with_index do |vot, ind|
            if ind > 0
              number = "#{number}-#{ind + 1}"
