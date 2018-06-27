@@ -17,8 +17,11 @@ class GetPages
     (0..end_page).each do |p|
       start = p * 10
       uri = "https://www.lvivrada.gov.ua/zasidannia/rezultaty-golosuvan?start=#{start}"
+
+
       result_votes_html= GetPage.page(uri)
       result_votes_html.css('#itemListLeading a').each do |a|
+        next if a[:href] =="https://drive.google.com/open?id=15pXPyB-rWfQek_wPwV4VejgWbhnssmUt"
         text_date= a.text.split(' ').last
 
         if text_date.include?('-')
@@ -26,7 +29,7 @@ class GetPages
         else
           date = Date.parse(text_date, '%d.%m.%Y')
         end
-        next if a[:href] =="https://drive.google.com/open?id=15pXPyB-rWfQek_wPwV4VejgWbhnssmUt"
+
        hash << { date: date,
                 url: "https://www.lvivrada.gov.ua#{a[:href]}"
         }
