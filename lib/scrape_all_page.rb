@@ -26,6 +26,7 @@ class GetPages
         else
           date = Date.parse(text_date, '%d.%m.%Y')
         end
+        next if a[:href] ==https://drive.google.com/open?id=15pXPyB-rWfQek_wPwV4VejgWbhnssmUt
        hash << { date: date,
                 url: "https://www.lvivrada.gov.ua#{a[:href]}"
         }
