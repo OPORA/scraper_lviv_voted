@@ -27,6 +27,7 @@ class GetAllVotes
          result = colums_table[2].text.strip
        end
        next if doc == "https://drive.google.com/open?id=15pXPyB-rWfQek_wPwV4VejgWbhnssmUt"
+       next if doc == "/images/Rezultaty_golosuvannja/2017_11_16/112.rtf"
        file_path = "https://www.lvivrada.gov.ua#{doc}"
        p file_path
        file_names = []
