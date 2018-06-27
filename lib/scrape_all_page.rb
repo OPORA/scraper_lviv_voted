@@ -21,7 +21,7 @@ class GetPages
 
       result_votes_html= GetPage.page(uri)
       result_votes_html.css('#itemListLeading a').each do |a|
-        next if a[:href] =="https://drive.google.com/open?id=15pXPyB-rWfQek_wPwV4VejgWbhnssmUt"
+        p a
         text_date= a.text.split(' ').last
 
         if text_date.include?('-')
@@ -40,6 +40,7 @@ class GetPages
   def get_all_votes
     @all_page.each do |p|
       p p[:date]
+
       GetAllVotes.votes(p[:url], p[:date])
     end
   end

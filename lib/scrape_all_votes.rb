@@ -8,6 +8,7 @@ require_relative 'get_mps'
 class GetAllVotes
   def self.votes(url, date)
      p url
+
      page = GetPage.page(url)
      page.css('.itemFullText table tr').each_with_index do |tr, index|
 
@@ -25,6 +26,7 @@ class GetAllVotes
          doc = colums_table[2].css('a')[0][:href]
          result = colums_table[2].text.strip
        end
+       next if doc == "https://drive.google.com/open?id=15pXPyB-rWfQek_wPwV4VejgWbhnssmUt"
        file_path = "https://www.lvivrada.gov.ua#{doc}"
        p file_path
        file_names = []
