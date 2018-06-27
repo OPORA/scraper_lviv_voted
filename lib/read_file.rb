@@ -1,7 +1,7 @@
 require 'yomu'
 class ReadFile
   def rtf(file_name)
-    p "file name is " file_name
+    p "file name is " + file_name
     votes = []
     yomu = Yomu.new file_name
      if yomu.text[/\nУКРАЇНА\n\sЛЬВІВСЬКА МІСЬКА РАДА/]
